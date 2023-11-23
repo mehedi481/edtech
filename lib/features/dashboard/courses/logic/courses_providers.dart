@@ -9,3 +9,7 @@ final videoSelectionProvider =
     StateNotifierProvider.autoDispose<VideoSelectionNotifier, int>((ref) {
   return VideoSelectionNotifier(ref.watch(totalVideoLength));
 });
+
+
+final visibilityBookMarkProvider = StateNotifierProvider<VisibilityBookMarkNotifier, bool>(
+    (ref) => VisibilityBookMarkNotifier());

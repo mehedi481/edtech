@@ -19,15 +19,12 @@ class CoursesScreen extends ConsumerWidget {
           style: AppTextStyle.title,
         ),
       ),
-      body: Container(
-        padding: EdgeInsets.all(16.r),
-        child: GridView.count(
-          crossAxisCount: 2,
-          mainAxisSpacing: 10.h,
-          childAspectRatio: 0.9.h,
-          children: List.generate(
-            courseList.length,
-            (index) => CourseCard(
+      body: ListView.builder(
+        itemCount: courseList.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: CourseCard(
               course: courseList[index],
               onTap: () {
                 ref.watch(totalVideoLength.notifier).state =
@@ -39,8 +36,8 @@ class CoursesScreen extends ConsumerWidget {
                 );
               },
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

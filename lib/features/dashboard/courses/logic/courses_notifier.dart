@@ -24,3 +24,16 @@ class VideoSelectionNotifier extends StateNotifier<int> {
     return state == totalVideos - 1;
   }
 }
+
+class VisibilityBookMarkNotifier extends StateNotifier<bool> {
+  VisibilityBookMarkNotifier() : super(true);
+
+  Future<void> makeInvisibleAfterDelay() async {
+    await Future.delayed(const Duration(seconds: 3));
+    state = false;
+  }
+
+  void hide() {
+    state = false;
+  }
+}

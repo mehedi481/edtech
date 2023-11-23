@@ -48,6 +48,11 @@ class _VideoPlayerWidgetState extends ConsumerState<VideoPlayerWidget> {
                   }
                 }
               }
+              if (_videoPlayerController.value.isPlaying) {
+                ref
+                    .watch(visibilityBookMarkProvider.notifier)
+                    .makeInvisibleAfterDelay();
+              }
             });
             setState(() {});
           });

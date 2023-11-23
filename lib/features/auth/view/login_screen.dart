@@ -59,6 +59,7 @@ class LoginScreen extends ConsumerWidget {
                     );
 
                     // Navigate to the dashboard upon successful login
+                    // ignore: use_build_context_synchronously
                     Navigator.pushReplacementNamed(
                         context, AppRouter.dashboard);
                   } else {
@@ -83,7 +84,6 @@ class LoginScreen extends ConsumerWidget {
                     );
                   }
                 } catch (e) {
-                  // Handle any potential authentication errors here
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
